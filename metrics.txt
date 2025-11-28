@@ -1,0 +1,4 @@
+BLEU-4
+ROUGE-L
+F1
+BERTScore
