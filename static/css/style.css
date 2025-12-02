@@ -1,0 +1,30 @@
+/* static/css/style.css */
+
+/* Tùy chỉnh thanh cuộn cho đẹp trên nền tối */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
+
+/* Animation hiện lên */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Class dùng để làm mờ background khi chat */
+.bg-dimmed {
+    transform: scale(1.05); /* Zoom nhẹ background */
+    filter: blur(8px) brightness(0.4); /* Mờ đi và tối đi */
+}
+
+/* Loading 3 chấm */
+.typing-dot { animation: typing 1.4s infinite ease-in-out both; background-color: #fff; }
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
+@keyframes typing { 0%, 80%, 100% { transform: scale(0); } 40% { transform: scale(1); } }
+
+
