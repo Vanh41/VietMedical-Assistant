@@ -90,16 +90,14 @@ chatForm.addEventListener('submit', async (e) => {
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder("utf-8");
-        let botMessage = ""; // Lưu trữ toàn bộ câu trả lời của bot
+        let botMessage = ""; // Lưu trữ toàn bộ câu trả lời
 
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
 
             const chunk = decoder.decode(value, { stream: true });
-            botMessage += chunk; // Thêm chunk vào câu trả lời
-
-            // Hiển thị chunk ngay lập tức
+            botMessage += chunk;
             const loadingElement = document.getElementById(loadingId);
             if (loadingElement) {
                 loadingElement.remove();
