@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import JSONResponse, StreamingResponse
 from llama_cpp import Llama
 
-MODEL_PATH = "model.gguf"
+MODEL_PATH = "Qwen3VietMedQATest.gguf"
 llm = None
 
 @asynccontextmanager
@@ -20,7 +20,7 @@ async def lifespan(app: FastAPI):
         try:
             llm = Llama(
                 model_path=MODEL_PATH,
-                verbose=True,
+                verbose=False,
             )
             print("Load Model thành công!")
         except Exception as e:
@@ -45,7 +45,8 @@ async def generate_response(user_prompt: str):
         response = llm.create_chat_completion(
             messages=[{"role": "user", "content": user_prompt}],
             max_tokens=2048,
-            stream=True
+            stream=True,
+            temperature=0.7,
         )
         for chunk in response:
             choices = chunk.get("choices", [])
@@ -64,7 +65,7 @@ async def home(request: Request):
 
 @app.post("/chat")
 async def chat_endpoint(prompt: str = Form(...)):
-    print(f"Nhận câu hỏi (Stream): {prompt}")
+    print(f"Nhận câu hỏi: {prompt}")
     try:
         return StreamingResponse(generate_response(prompt), media_type="text/plain")
     except Exception as e:
