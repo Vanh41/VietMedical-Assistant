@@ -2,7 +2,9 @@
 
 *Fine-tuning Qwen 3-4B-Instruct model for medical Question-Answer dataset*
 
-This is a personal project I developed with minimal help from LLM for the UI. I created it out of my own interest (っ˘ω˘ς )❤️.
+This is a personal project I developed with minimal help from LLM for the UI. I created it out of my own interest 
+
+(っ˘ω˘ς )❤️.
 
 
 ---
@@ -41,5 +43,11 @@ In case you want to try my results:
 python app.py
 ```
 And then visit `http://127.0.0.1:8000` to test
+
+<img width="1512" height="982" alt="Screenshot 2025-12-15 at 10 25 58" src="https://github.com/user-attachments/assets/119b4678-694d-4c66-b4bc-bc37262225e0" />
+<img width="1512" height="982" alt="Screenshot 2025-12-15 at 10 25 14" src="https://github.com/user-attachments/assets/baf86b33-a8cd-47be-b1ed-4ba398ef124c" />
+
+
+https://github.com/user-attachments/assets/0c94a1e5-19b3-4b16-a35b-a092633cfd69
 
 
