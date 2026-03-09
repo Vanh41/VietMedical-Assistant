@@ -6,3 +6,7 @@ __pycache__/
 .venv/
 .env
 bin
+.DS_Store
+notebooks/.DS_Store
+.DS_Store
+notebooks/.DS_Store

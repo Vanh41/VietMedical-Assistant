@@ -1,5 +1,9 @@
-BLEU-4
-ROUGE-L
-F1
+# statistical metrics
 BERTScore
-EM
+
+# llm-as-a-judge
+Naturalness
+Completeness
+Safety
+Conciseness
+Faithfulness
