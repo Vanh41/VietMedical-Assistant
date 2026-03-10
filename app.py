@@ -10,7 +10,7 @@ from fastapi.responses import JSONResponse, StreamingResponse
 from llama_cpp import Llama
 from huggingface_hub import hf_hub_download
 
-MODEL_PATH = "Qwen3-4b-it-test-VietMedQA.Q4_K_M.gguf"
+MODEL_PATH = "Qwen3-4b-it-final-VietMedQA.Q4_K_M.gguf"
 llm = None
 
 @asynccontextmanager
@@ -28,8 +28,8 @@ async def lifespan(app: FastAPI):
             print(f"Lỗi load model: {e}")
     else:
         print(f"Không tìm thấy file model, bắt đầu tải từ hugging face")
-        hf_hub_download(repo_id="NgVietAnh41/Qwen3-4b-it-VietMedQA-DPO-gguf",
-        filename="Qwen3-4b-it-test-VietMedQA.Q4_K_M.gguf",
+        hf_hub_download(repo_id="NgVietAnh41/Qwen3-4b-it-VietMedQA-final-DPO-gguf",
+        filename="Qwen3-4b-it-final-VietMedQA.Q4_K_M.gguf",
         local_dir="",
         )
         llm = Llama(
