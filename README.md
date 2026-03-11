@@ -2,7 +2,6 @@
 
 *Fine-tuning Qwen 3-4B-Instruct model for medical Question-Answer dataset*
 
-This is a personal project I developed with minimal help from LLM for the UI. I created it out of my own interest.
 
 ---
 
