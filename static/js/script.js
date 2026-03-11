@@ -90,19 +90,26 @@ chatForm.addEventListener('submit', async (e) => {
 
         const reader = response.body.getReader();
         const decoder = new TextDecoder("utf-8");
-        let botMessage = ""; // Lưu trữ toàn bộ câu trả lời
+        
+        // 1. NGAY KHI CÓ KẾT NỐI: Xóa hiệu ứng loading TRƯỚC khi vào vòng lặp
+        const loadingElement = document.getElementById(loadingId);
+        if (loadingElement) {
+            loadingElement.remove();
+        }
 
+        // 2. Tạo DUY NHẤT 1 bong bóng chat rỗng
+        chatBox.insertAdjacentHTML('beforeend', createMessageHTML("", 'bot'));
+        // Tìm đúng cái thẻ div chứa text của bong bóng vừa tạo
+        const currentBotBubble = chatBox.lastElementChild.querySelector('.text-gray-100');
+
+        // 3. VÒNG LẶP CHỈ LÀM 1 VIỆC: Nối chữ vào bong bóng
         while (true) {
             const { done, value } = await reader.read();
             if (done) break;
 
             const chunk = decoder.decode(value, { stream: true });
-            botMessage += chunk;
-            const loadingElement = document.getElementById(loadingId);
-            if (loadingElement) {
-                loadingElement.remove();
-            }
-            chatBox.insertAdjacentHTML('beforeend', createMessageHTML(chunk.trim(), 'bot'));
+            currentBotBubble.innerHTML += chunk; // Nối chữ, tuyệt đối KHÔNG tạo bong bóng mới
+            
             chatBox.scrollTop = chatBox.scrollHeight;
         }
 
